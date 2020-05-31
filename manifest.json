@@ -1,19 +1,31 @@
 {
     "manifest_version":2,
-    "name":"Shahidul's Extension",
+    "name":"Custom Background",
     "version":"1.0",
-    "description":"Tutorial Extention",
+    "description":"Google HomePage Custom Background ",
     "icons":{
         "128":"./images/icon128.png",
         "48":"./images/icon48.png",
         "16":"./images/icon16.png"
     },
-    "browser_action":{
+    "page_action":{
         "default_popup":"popup.html",
         "default_icon":"./images/icon16.png",
-        "default_title":"Shahidul's Extension"
+        "default_title":"Custom Background"
 
     },
+    "background":{
+        "scripts":[
+            "eventPage.js"
+        ],
+        "persistent":false
+    },
+    "content_scripts":[
+        {
+            "matches":["https://www.google.com/"],
+            "js":["content.js","jquery.js"]
+        }
+    ],
     "permissions":[
         "tabs",
         "storage"
